@@ -1,0 +1,289 @@
+@import url(https://fonts.googleapis.com/css?family=Oxygen|Rubik:300);
+html,
+body {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  font-family: 'Rubik', Arial, sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.6px;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  background: linear-gradient(135deg, #b8d087, #00996d);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.hidden {
+  display: none;
+}
+
+.container {
+  box-shadow: 0 16px 28px 0 rgba(0, 0, 0, 0.8),
+    0 25px 55px 0 rgba(0, 0, 0, 0.21);
+  width: 290px;
+  height: 420px;
+  background-color: #1f2025;
+  color: #dadadb;
+}
+
+.header {
+  text-align: center;
+  padding: 0 20px 20px 30%;
+  font-size: 15.6px;
+  border-bottom: solid #18191d 1px;
+}
+
+.timer {
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.timer-display {
+  color: #b8d087;
+  font-size: 36px;
+  margin-top: 60px;
+  margin-left: 10px;
+  text-align: center;
+}
+
+svg#gradient {
+  width: 100px;
+  height: 40px;
+  vertical-align: bottom;
+  pointer-events: none;
+}
+svg#gradient text {
+  fill: url(#linearGradient);
+}
+
+#status {
+  text-align: center;
+  height: 20px;
+  margin-top: -30px;
+  margin-bottom: 30px;
+  color: #636779;
+}
+
+.start {
+  background: linear-gradient(135deg, #b8d087, #00996d);
+  box-shadow: 0 16px 28px 0 rgba(0, 0, 0, 0.8),
+    0 25px 55px 0 rgba(0, 0, 0, 0.21);
+  width: 290px;
+  text-align: center;
+  color: white;
+  padding: 20px 20px;
+  cursor: pointer;
+}
+.start:hover {
+  background: #00996d;
+}
+.start:active {
+  background: linear-gradient(135deg, #b8d087, #00996d);
+}
+
+.inner-circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-48%, -73.5%);
+}
+
+.outer-circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-48%, -73.5%);
+  z-index: 1;
+}
+
+.progress-color0 {
+  fill: url(#greenGradient);
+}
+
+.progress-color1 {
+  fill: #353741;
+}
+
+#action-title {
+  position: absolute;
+  font-size: 8px;
+  left: 50%;
+  margin-top: 0;
+  transform: translate(-50%, -50%);
+  background: #1f2025;
+  padding: 5px 20px;
+  border-radius: 20px;
+  border: solid #636779 1px;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #636779;
+}
+.actions div {
+  padding-bottom: 0;
+  flex: 1;
+}
+
+.set-timer,
+.set-break {
+  padding-top: 20px;
+  border: solid #18191d 1px;
+}
+
+.set-timer {
+  border-right: none;
+  border-left: none;
+}
+
+.set-break {
+  border-right: none;
+}
+
+.set-display {
+  color: #dadadb;
+  font-size: 16.8px;
+  padding-top: 10px;
+}
+
+.actions .minus-add {
+  font-size: 18px;
+  display: flex;
+  padding: 0;
+  justify-content: center;
+}
+.actions .minus-add div {
+  cursor: pointer;
+  margin: 1px;
+  padding: 5px;
+  margin-bottom: 10px;
+  flex: 0.5;
+}
+.actions .minus-add div:hover {
+  color: #dadadb;
+}
+.actions .minus-add div:active {
+  color: #353741;
+}
+
+.spinner-container {
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  top: 50%;
+  margin-top: -40px;
+  transform: translate(-50%, -50%);
+}
+
+.spinner-mask {
+  position: absolute;
+  background-color: #1f2025;
+  height: 45px;
+  width: 50px;
+  margin-top: 181px;
+  left: 200px;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+.spinner {
+  transform: rotate(150deg);
+  -webkit-animation: rotator 1.2s linear infinite;
+  animation: rotator 1.2s linear infinite;
+}
+
+@-webkit-keyframes rotator {
+  0% {
+    transform: rotate(150deg);
+  }
+  20% {
+    transform: rotate(200deg);
+  }
+  100% {
+    transform: rotate(390deg);
+  }
+}
+
+@keyframes rotator {
+  0% {
+    transform: rotate(150deg);
+  }
+  20% {
+    transform: rotate(200deg);
+  }
+  100% {
+    transform: rotate(390deg);
+  }
+}
+.spinning {
+  stroke-dasharray: 187;
+  stroke-dashoffset: 185;
+  transform-origin: center;
+  -webkit-animation: dash 1.2s infinite, colors 1.2s infinite;
+  animation: dash 1.2s infinite, colors 1.2s infinite;
+}
+
+@-webkit-keyframes colors {
+  0% {
+    stroke: #b8d087;
+  }
+  50% {
+    stroke: #00996d;
+  }
+  100% {
+    stroke: #b8d087;
+  }
+}
+
+@keyframes colors {
+  0% {
+    stroke: #b8d087;
+  }
+  50% {
+    stroke: #00996d;
+  }
+  100% {
+    stroke: #b8d087;
+  }
+}
+@-webkit-keyframes dash {
+  0% {
+    stroke-dashoffset: 185;
+  }
+  50% {
+    stroke-dashoffset: 175;
+  }
+  100% {
+    stroke-dashoffset: 185;
+  }
+}
+@keyframes dash {
+  0% {
+    stroke-dashoffset: 185;
+  }
+  50% {
+    stroke-dashoffset: 175;
+  }
+  100% {
+    stroke-dashoffset: 185;
+  }
+}
